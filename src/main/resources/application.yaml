@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: "fidabck"
+  devtools:
+    add-properties: false
+  datasource:
+    url: "jdbc:postgresql://localhost:5432/fida"
+    username: "postgres"
+    password: "admin"
