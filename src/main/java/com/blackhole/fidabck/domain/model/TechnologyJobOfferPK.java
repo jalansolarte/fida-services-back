@@ -1,6 +1,6 @@
 package com.blackhole.fidabck.domain.model;
 
-public class TechnologieJobOfferPK {
+public class TechnologyJobOfferPK {
 
     private Long idJobOffer;
     private Long idTechnologie;

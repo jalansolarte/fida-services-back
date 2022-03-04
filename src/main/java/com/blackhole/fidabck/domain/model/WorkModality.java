@@ -1,14 +1,35 @@
 package com.blackhole.fidabck.domain.model;
 
+import lombok.Builder;
+import lombok.Data;
+import lombok.ToString;
+
+import javax.persistence.*;
 import java.sql.Timestamp;
 
-//"WORK_MODALITY"
-public class WorkModality extends TrackingData{
+@Data
+@Builder
+@ToString
+@Entity
+@Table(name = "WORK_MODALITY")
+public class WorkModality {
 
-    private Long idWorkModality;
+    @Id
+    @GeneratedValue(strategy= GenerationType.SEQUENCE)
+    @Column(name = "id_work_modality")
+    private Integer idWorkModality;
     private String name;
 
-    public WorkModality(Timestamp createDate, String createBy) {
-        super(createDate, createBy);
-    }
+    @Column(name = "created_date")
+    private Timestamp createdDate;
+
+    @Column(name = "created_by")
+    private String createdBy;
+
+    @Column(name = "updated_date")
+    private Timestamp updatedDate;
+
+    @Column(name = "updated_by")
+    private String updatedBy;
+
 }

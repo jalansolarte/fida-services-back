@@ -1,29 +1,19 @@
 package com.blackhole.fidabck.domain.model;
 
-import lombok.Builder;
 import lombok.Data;
 import lombok.ToString;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Data
-@Builder
 @ToString
 @Entity
-@Table(name = "step")
-public class Step {
+@Table(name = "TECHNOLOGY_JOB_OFFER")
+public class TechnologyJobOffer {
 
-    private Integer idStepType;
-    private Integer IdCandidateOfferProcess;
-
-    private String feedback;
-    @Column(name = "is_aproved")
-    private Boolean isAproved;
-    private Boolean status;
-
+    @Embedded
+    private TechnologyJobOfferPK id;
 
     @Column(name = "created_date")
     private Timestamp createdDate;
@@ -36,4 +26,5 @@ public class Step {
 
     @Column(name = "updated_by")
     private String updatedBy;
+
 }
