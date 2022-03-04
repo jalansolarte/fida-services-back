@@ -6,23 +6,19 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name = "USUARIO")
+@Table(name = "USER_APP")
 public class User {
 
     @Id
     @GeneratedValue(strategy= GenerationType.SEQUENCE)
-    @Column(name = "id_usuario")
+    @Column(name = "id_user")
     private Integer id;
 
-    @Column(name = "username")
+    @Column(name = "user_name")
     private String username;
 
-    @Column(name = "pass")
     private String password;
 
-    @Column(name = "enabled")
-    private Boolean enabled;
-
-    @Column(name = "token")
+    @Transient
     private String token;
 }
