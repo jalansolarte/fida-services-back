@@ -19,6 +19,7 @@ public class IdentificationType {
     @Column(name = "id_type")
     private Integer idType;
     private String name;
+
     @Column(name = "created_date")
     private Timestamp createdDate;
 
