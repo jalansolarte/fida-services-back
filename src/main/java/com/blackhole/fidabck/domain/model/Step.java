@@ -1,9 +1,5 @@
 package com.blackhole.fidabck.domain.model;
 
-import lombok.Builder;
-import lombok.Data;
-import lombok.ToString;
-
 import java.sql.Timestamp;
 
 /*
@@ -11,9 +7,9 @@ import java.sql.Timestamp;
 @Builder
 @ToString
 */
-public class StepProcess {
+public class Step {
 
-    private Integer idStepProcess;
+    private Integer idStep;
     private String feedback;
     private Boolean isAproved;
     private Boolean status;

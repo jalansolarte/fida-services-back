@@ -7,7 +7,7 @@ import javax.persistence.*;
 @Data
 @Entity
 @Table(name = "USER_APP")
-public class User {
+public class UserApp {
 
     @Id
     @GeneratedValue(strategy= GenerationType.SEQUENCE)

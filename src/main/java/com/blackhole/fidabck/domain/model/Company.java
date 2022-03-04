@@ -11,13 +11,16 @@ import java.sql.Timestamp;
 @Builder
 @ToString
 @Entity
-@Table(name = "contract_type")
-public class ContractType {
+@Table(name = "company")
+public class Company {
 
     @Id
     @GeneratedValue(strategy= GenerationType.SEQUENCE)
-    @Column(name = "id_contract_type")
-    private Long idContractType;
+    @Column(name = "id_company")
+    private Long idCompany;
+
+    @Column(name = "id_memberships")
+    private Long idMemberships;
     private String name;
 
     @Column(name = "created_date")

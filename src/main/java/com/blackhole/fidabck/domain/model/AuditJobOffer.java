@@ -7,18 +7,21 @@ import lombok.ToString;
 import javax.persistence.*;
 import java.sql.Timestamp;
 
-@Data
-@Builder
-@ToString
-@Entity
-@Table(name = "contract_type")
-public class ContractType {
+@Data @Builder @ToString
+@Entity @Table(name = "audit_job_offer")
+public class AuditJobOffer {
 
     @Id
     @GeneratedValue(strategy= GenerationType.SEQUENCE)
-    @Column(name = "id_contract_type")
-    private Long idContractType;
-    private String name;
+    @Column(name = "id_auditory_job_offer")
+    private Long idAuditJobOffer;
+
+    @Column(name = "id_job_offer")
+    private JobOffer idJobOffer;
+
+    @Column(name = "status_name")
+    private String statusName;
+    private String reason;
 
     @Column(name = "created_date")
     private Timestamp createdDate;

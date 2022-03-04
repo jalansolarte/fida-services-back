@@ -1,6 +1,6 @@
 package com.blackhole.fidabck.infrastructure.entrypoints;
 
-import com.blackhole.fidabck.domain.model.User;
+import com.blackhole.fidabck.domain.model.UserApp;
 import com.blackhole.fidabck.domain.usecase.user.UserService;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -20,13 +20,13 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("/user")
-    public User login(@RequestParam("user") String username, @RequestParam("password") String pwd) {
+    public UserApp login(@RequestParam("user") String username, @RequestParam("password") String pwd) {
 
         String token = getJWTToken(username);
-        User user = new User();
-        user.setUsername(username);
-        user.setToken(token);
-        return user;
+        UserApp userApp = new UserApp();
+        userApp.setUsername(username);
+        userApp.setToken(token);
+        return userApp;
 
     }
 
@@ -52,7 +52,7 @@ public class UserController {
     }
 
     @GetMapping("/getAll")
-    public List<User> getAllUsers(){
+    public List<UserApp> getAllUsers(){
         return userService.getUser();
     }
 }
