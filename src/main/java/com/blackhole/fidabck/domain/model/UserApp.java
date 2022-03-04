@@ -1,10 +1,12 @@
 package com.blackhole.fidabck.domain.model;
 
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.*;
 
 @Data
+@ToString
 @Entity
 @Table(name = "USER_APP")
 public class UserApp {
