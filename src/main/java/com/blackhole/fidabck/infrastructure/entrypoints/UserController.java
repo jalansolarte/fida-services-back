@@ -7,8 +7,8 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -21,24 +21,24 @@ public class UserController {
 
     @PostMapping("/user")
     public User login(@RequestParam("user") String username, @RequestParam("password") String pwd) {
-
-        String token = getJWTToken(username);
+        //BCryptPasswordEncoder -> Cifrar contraseña
         User user = new User();
         user.setUsername(username);
+        String token = getJWTToken(user);
         user.setToken(token);
         return user;
 
     }
 
-    private String getJWTToken(String username) {
+    private String getJWTToken(User user) {
         String secretKey = "mySecretKey";
         List<GrantedAuthority> grantedAuthorities = AuthorityUtils
                 .commaSeparatedStringToAuthorityList("ROLE_USER");
 
         String token = Jwts
                 .builder()
-                .setId("softtekJWT")
-                .setSubject(username)
+                .setId(user.getUsername())
+                .setSubject(user.toString())
                 .claim("authorities",
                         grantedAuthorities.stream()
                                 .map(GrantedAuthority::getAuthority)
