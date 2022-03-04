@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.ToString;
 
 import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.sql.Timestamp;
@@ -16,14 +17,13 @@ import java.sql.Timestamp;
 @Table(name = "step")
 public class Step {
 
-    private Integer idStepType;
-    private Integer IdCandidateOfferProcess;
-
+    @EmbeddedId
+    private StepPK id;
     private String feedback;
+
     @Column(name = "is_aproved")
     private Boolean isAproved;
     private Boolean status;
-
 
     @Column(name = "created_date")
     private Timestamp createdDate;

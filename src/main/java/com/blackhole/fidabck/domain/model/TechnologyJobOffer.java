@@ -12,7 +12,7 @@ import java.sql.Timestamp;
 @Table(name = "TECHNOLOGY_JOB_OFFER")
 public class TechnologyJobOffer {
 
-    @Embedded
+    @EmbeddedId
     private TechnologyJobOfferPK id;
 
     @Column(name = "created_date")
